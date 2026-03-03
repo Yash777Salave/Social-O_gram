@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-
+import strings from '../../Constants/Lang/index';
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text style={{ fontFamily: 'Lato-Bold' }}>{strings}</Text>
     </View>
   );
 };

@@ -7,4 +7,5 @@ export default {
   SIGN_UP: 'Signup',
   PRFILE: 'Profile',
   NOTIFICATION: 'Notification',
+  TAB_ROUTES: 'TabRoutes',
 };

@@ -4,9 +4,10 @@ import {
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet } from 'react-native';
-
-import { Search, Home, CreatePost, Notification, Profile } from '../Screens';
 import navigationStrings from './NavigationString';
+import { CreatePost, Home, Notification, Profile, Search } from '../Screens';
+import ImagePath from '../Constants/ImagePath';
+import colors from '../styles/Colors';
 const BottomTab = createBottomTabNavigator();
 
 const TabRoutes = props => {
@@ -21,9 +22,10 @@ const TabRoutes = props => {
       screenOptions={{
         headerShown: false,
         style: styles.customBottomtabsStyle,
-        tabBarActiveTintColor: colors.blackColor,
+        tabBarActiveTintColor: colors.black,
         tabBarInactiveTintColor: 'gray',
         // tabBarShowLabel: false
+        // tabBarStyle: { backgroundColor: 'gray' },
       }}
     >
       <BottomTab.Screen
@@ -32,9 +34,9 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? (
-              <Image source={imagePath.firstActiveIcon} />
+              <Image source={ImagePath.firstActiveIcon} />
             ) : (
-              <Image source={imagePath.firstInActiveIcon} />
+              <Image source={ImagePath.firstInActiveIcon} />
             );
           },
         }}
@@ -45,22 +47,22 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? (
-              <Image source={imagePath.secondActiveIcon} />
+              <Image source={ImagePath.secondActiveIcon} />
             ) : (
-              <Image source={imagePath.secondInActiveIcon} />
+              <Image source={ImagePath.secondInActiveIcon} />
             );
           },
         }}
       />
       <BottomTab.Screen
-        name={navigationStrings.POST}
+        name={navigationStrings.CREATE_POST}
         component={CreatePost}
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? (
-              <Image source={imagePath.thirdActiveIcon} />
+              <Image source={ImagePath.thirdActiveIcon} />
             ) : (
-              <Image source={imagePath.thirdInActiveIcon} />
+              <Image source={ImagePath.thirdInActiveIcon} />
             );
           },
         }}
@@ -71,9 +73,9 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? (
-              <Image source={imagePath.fourthActiveIcon} />
+              <Image source={ImagePath.fourthActiveIcon} />
             ) : (
-              <Image source={imagePath.fourthInActiveIcon} />
+              <Image source={ImagePath.fourthInActiveIcon} />
             );
           },
         }}
@@ -84,9 +86,9 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? (
-              <Image source={imagePath.fifthActiveIcon} />
+              <Image source={ImagePath.fifthActiveIcon} />
             ) : (
-              <Image source={imagePath.fifthInActiveIcon} />
+              <Image source={ImagePath.fifthInActiveIcon} />
             );
           },
         }}
