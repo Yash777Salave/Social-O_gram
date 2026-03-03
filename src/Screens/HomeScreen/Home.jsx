@@ -4,7 +4,7 @@ import strings from '../../Constants/Lang/index';
 const Home = () => {
   return (
     <View>
-      <Text style={{ fontFamily: 'Lato-Bold' }}>{strings}</Text>
+      <Text style={{ fontFamily: 'Lato-Bold' }}>{strings.HOME}</Text>
     </View>
   );
 };
