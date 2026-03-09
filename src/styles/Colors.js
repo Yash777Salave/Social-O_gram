@@ -16,6 +16,7 @@ export default {
   blackOpacity70: 'rgba(0,0,0,0.7)',
   blackOpacity80: 'rgba(0,0,0,0.8)',
   blackOpacity90: 'rgba(0,0,0,0.9)',
+  darkMode: 'rgba(20,19,19,1)',
 
   white: '#FFFFFFFF',
   whiteOpacity50: 'rgba(255, 255, 255, 0.5)',

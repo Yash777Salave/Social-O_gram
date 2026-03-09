@@ -3,10 +3,14 @@ import React from 'react';
 import Routes from './src/Navigations/Routes';
 import { Provider } from 'react-redux';
 import store from './src/Redux/store';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 const App = () => {
   return (
     <Provider store={store}>
-      <Routes />
+      <SafeAreaProvider>
+        <Routes />
+      </SafeAreaProvider>
     </Provider>
   );
 };
