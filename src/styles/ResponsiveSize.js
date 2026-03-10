@@ -1,63 +1,37 @@
-import { Dimensions, PixelRatio } from 'react-native';
-
-/*
-  Get device screen size
-*/
+import { Dimensions, StatusBar } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
-/*
-  Base design size (Figma / UI design size)
-  Most designers use iPhone X frame
-*/
-const BASE_WIDTH = 375;
-const BASE_HEIGHT = 812;
+const guidelineBaseWidth = 375;
+const guidelineBaseHeight = 812;
 
-/*
-  Horizontal scaling
-  Use for:
-  - width
-  - marginHorizontal
-  - paddingHorizontal
-*/
-export const scale = size => {
-  return (width / BASE_WIDTH) * size;
+const scale = size => (width / guidelineBaseWidth) * size;
+const verticalScale = size => (height / guidelineBaseHeight) * size;
+const moderateScale = (size, factor = 0.5) =>
+  size + (scale(size) - size) * factor;
+const moderateScaleVertical = (size, factor = 0.5) =>
+  size + (verticalScale(size) - size) * factor;
+const textScale = percent => {
+  const screenHeight = Dimensions.get('window').height;
+  //calculate absolute ratio for bigger screens 18.5:9 requiring smaller scaling
+  const ratio =
+    Dimensions.get('window').height / Dimensions.get('window').width;
+  //Guideline sizes are based on standard ~5″ screen mobile device
+  const deviceHeight = 375
+    ? screenHeight * (ratio > 1.8 ? 0.126 : 0.15) //Set guideline depending on absolute ratio
+    : Platform.OS === 'android'
+    ? screenHeight - StatusBar.currentHeight
+    : screenHeight;
+
+  const heightPercent = (percent * deviceHeight) / 100;
+  return Math.round(heightPercent);
 };
 
-/*
-  Vertical scaling
-  Use for:
-  - height
-  - marginTop
-  - marginBottom
-  - paddingVertical
-*/
-export const verticalScale = size => {
-  return (height / BASE_HEIGHT) * size;
+export {
+  scale,
+  verticalScale,
+  textScale,
+  moderateScale,
+  moderateScaleVertical,
+  width,
+  height,
 };
-
-/*
-  Moderate scaling
-  Prevents components from becoming too big on large screens
-
-  Best for:
-  - icons
-  - borderRadius
-  - buttons
-*/
-export const moderateScale = (size, factor = 0.5) => {
-  return size + (scale(size) - size) * factor;
-};
-
-/*
-  Font scaling
-
-  Uses device pixel density for better typography scaling
-*/
-export const fontScale = size => {
-  return size * PixelRatio.getFontScale();
-};
-
-/*
-  Export device width & height if needed
-*/
-export { width, height };

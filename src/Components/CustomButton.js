@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import FontFamily from '../styles/FontFamily';
 import Colors from '../styles/Colors';
+import { moderateScale, scale, verticalScale } from '../styles/ResponsiveSize';
 
 const CustomButton = ({
   onPress = () => {},
@@ -35,16 +36,16 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
   buttonContainer: {
-    height: 52,
+    height: verticalScale(52),
     backgroundColor: Colors.red,
-    borderRadius: 8,
+    borderRadius: moderateScale(8),
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingHorizontal: 16,
+    paddingHorizontal: scale(16),
   },
   icons: {
-    height: 30,
-    width: 30,
+    height: moderateScale(30),
+    width: moderateScale(30),
   },
 });

@@ -13,4 +13,15 @@ export default {
   LOG_IN_WITH_APPLE: 'Log in with Apple',
   NEW_HERE: 'New here',
   SIGN_UP: ' Sign Up',
+  WELCOME_BACK: 'Welcome Back!',
+  WE_ARE_HAPPY_TO_SEE_YOUCANLOGIN_TO_CONTINUE:
+    'We are happy to see .You can log in to continue',
+  MOBILE_NUMBER: 'Mobile Number',
+  PASSWORD: 'Password',
+  USE_OTP: 'Use OTP',
+  FORGOT_PASSWORD: 'forgot password',
+  LOGIN: 'Login',
+  EMAIL: 'Email',
+  SHOW: 'Show',
+  HIDE: 'Hide',
 };

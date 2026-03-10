@@ -7,9 +7,16 @@ import ImagePath from '../../Constants/ImagePath';
 import strings from '../../Constants/Lang';
 import Colors from '../../styles/Colors';
 import CustomButton from '../../Components/CustomButton';
-import { moderateScale, verticalScale } from '../../styles/ResponsiveSize';
+import {
+  moderateScale,
+  moderateScaleVertical,
+  verticalScale,
+} from '../../styles/ResponsiveSize';
+import { useNavigation } from '@react-navigation/native';
+import NavigationString from '../../Navigations/NavigationString';
 const InitialScreen = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   // const onLogin = () => {
   //   dispatch(saveUserData({ isLogin: true }));
   // };
@@ -17,12 +24,17 @@ const InitialScreen = () => {
     Alert.alert('Terms');
   };
   return (
-    <WrapperContainer style={{ padding: 10, flex: 1 }}>
+    <WrapperContainer style={{ padding: moderateScale(10), flex: 1 }}>
       <View style={styles.logoContainer}>
         <Image source={ImagePath.appLogo} style={styles.logo} />
       </View>
       <View style={styles.subContainer}>
-        <Text style={{ ...styles.textStyles, marginVertical: 40 }}>
+        <Text
+          style={{
+            ...styles.textStyles,
+            marginVertical: moderateScaleVertical(40),
+          }}
+        >
           {strings.BY_CLICKING_LOG_IN}
           <Text onPress={onPress} style={styles.textStyles}>
             {strings.TERMS}
@@ -32,8 +44,16 @@ const InitialScreen = () => {
             {strings.PRIVACY_POLICY}
           </Text>
         </Text>
-        <CustomButton text={strings.LOG_IN_WITH_PHONE_NUMBER} />
-        <Text style={{ ...styles.textStyles, marginVertical: 16 }}>
+        <CustomButton
+          text={strings.LOG_IN_WITH_PHONE_NUMBER}
+          onPress={() => navigation.navigate(NavigationString.LOGIN)}
+        />
+        <Text
+          style={{
+            ...styles.textStyles,
+            marginVertical: moderateScaleVertical(16),
+          }}
+        >
           {strings.OR}
         </Text>
         <CustomButton
@@ -44,7 +64,10 @@ const InitialScreen = () => {
         />
         <CustomButton
           text={strings.LOG_IN_WITH_FACEBOOK}
-          style={{ marginVertical: 16, backgroundColor: Colors.white }}
+          style={{
+            marginVertical: moderateScaleVertical(16),
+            backgroundColor: Colors.white,
+          }}
           textStyle={{ color: Colors.black }}
           leftIcon={ImagePath.facebook}
         />
@@ -58,7 +81,7 @@ const InitialScreen = () => {
           style={{
             ...styles.textStyles,
             fontFamily: FontFamily.medium,
-            marginVertical: 16,
+            marginVertical: moderateScaleVertical(16),
           }}
         >
           {strings.NEW_HERE}
@@ -83,12 +106,12 @@ const styles = StyleSheet.create({
   logo: {
     height: verticalScale(150),
     width: moderateScale(150),
-    borderRadius: 150 / 2,
+    borderRadius: moderateScale(150 / 2),
   },
   textStyles: {
     fontFamily: FontFamily.regular,
     color: Colors.white,
-    fontSize: 11,
+    fontSize: moderateScale(11),
     textAlign: 'center',
   },
   logoContainer: {
@@ -98,7 +121,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
   },
   subContainer: {
-    padding: 16,
+    padding: moderateScale(16),
     flex: 0.7,
     // backgroundColor: 'blue',
     justifyContent: 'flex-end',
