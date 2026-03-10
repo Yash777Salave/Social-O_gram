@@ -10,4 +10,10 @@ export default {
   fourthInActiveIcon: require('../assets/images/ic_blue_setting.png'),
   fifthActiveIcon: require('../assets/images/ic_blue_setting.png'),
   fifthInActiveIcon: require('../assets/images/ic_blue_setting.png'),
+  /********************* App  Icons **********************/
+
+  appLogo: require('../assets/images/ic_logo.jpg'),
+  facebook: require('../assets/images/ic_facebook.png'),
+  google: require('../assets/images/ic_google.png'),
+  apple: require('../assets/images/ic_apple.png'),
 };

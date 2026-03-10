@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Routes from './src/Navigations/Routes';
 import { Provider } from 'react-redux';

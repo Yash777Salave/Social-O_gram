@@ -21,4 +21,6 @@ export default {
   white: '#FFFFFFFF',
   whiteOpacity50: 'rgba(255, 255, 255, 0.5)',
   whiteOpacity70: 'rgba(255, 255, 255, 0.7)',
+  red: '#EE4B2B',
+  blue: '#0096FF',
 };
